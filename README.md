@@ -1,1 +1,1 @@
-# aws_infra_tg_course
+# AWS Infrastructure via Terraform and Terragrunt course
