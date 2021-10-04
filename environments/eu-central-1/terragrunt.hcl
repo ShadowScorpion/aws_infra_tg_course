@@ -15,3 +15,23 @@ remote_state {
         profile = "default"
     }
 }
+
+terraform {
+    extra_arguments "bucket" {
+        commands = get_terraform_commands_that_need_vars()
+        optional_var_files = [
+            find_in_parent_folders("account.tfvars", "ignore")
+        ]
+    }
+}
+
+generate "provider" {
+    path = "provider.tf"
+    if_exists = "overwrite_terragrunt"
+    contents = <<EOF
+        provider "aws" {
+            profile = "default"
+            region = "eu-central-1"
+        }
+    EOF
+}
