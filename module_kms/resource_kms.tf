@@ -1,6 +1,6 @@
 resource "aws_kms_key" "this" {
     description = var.description
-    delition_window_in_days = var.delition_window_in_days
+    deletion_window_in_days = var.deletion_window_in_days
 }
 
 resource "aws_kms_alias" "this" {

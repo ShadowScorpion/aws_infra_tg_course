@@ -9,7 +9,7 @@ variable description {
     default = "Default description to KMS key"
 }
 
-variable delition_window_in_days {
+variable deletion_window_in_days {
     description = "Delition period of key in days"
     type = number
     default = 15

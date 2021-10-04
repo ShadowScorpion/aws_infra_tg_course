@@ -3,7 +3,7 @@ remote_state {
 
     generate = {
         path = "backend.tf"
-        if_exist = "overwrite_terragrunt"
+        if_exists = "overwrite_terragrunt"
     }
 
     config = {

@@ -9,5 +9,5 @@ terraform {
 inputs = {
     alias = "alias/ec2key"
     description = "EC2 instance encrypt key"
-    deletion_window_id_days = 10
+    deletion_window_in_days = 10
 }
