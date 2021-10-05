@@ -9,12 +9,6 @@ output "dns_records" {
 }
 
 output "fqdn_records" {
-    value = aws_route53_record.this.fqdn
+    value = [for record in aws_route53_record.this : record.fqdn]
     description = "FQDN records"
 }
-
-# output "fqdn_records" {
-#     value = tomap({
-#         for record in aws_route53_record.this : record => record.fqdn
-#     })
-# }
