@@ -16,14 +16,6 @@ inputs = {
             records = [
                 "127.0.0.1"
             ]
-        },
-        rule02 = {
-            name = "app2.course.com"
-            ttl = 60
-            type = "A"
-            records = [
-                "127.0.0.1"
-            ]
         }
     }
 }

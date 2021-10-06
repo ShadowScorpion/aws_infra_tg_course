@@ -6,11 +6,11 @@ terraform {
     source = "../../../module_alb"
 }
 
-dependency "security_group_arn" {
+dependency "security_group_id" {
   config_path = "../security_group/alb_sg/"
   mock_outputs_allowed_terraform_commands = ["validate"]
   mock_outputs = {
-    security_group_arn = "security_group_id"
+    security_group_id = "security_group_id"
   }
 }
 
@@ -24,8 +24,8 @@ dependency "certificate_arn" {
 
 
 inputs = {
-    name = "testapp_alb"
-    security_groups = [ dependency.security_group_arn.outputs.security_group_arn ]
+    name = "course-alb"
+    security_groups = [ dependency.security_group_id.outputs.security_group_id ]
     subnets = [
         "subnet-745acd38",
         "subnet-db4316b1",

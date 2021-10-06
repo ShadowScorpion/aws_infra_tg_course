@@ -14,6 +14,11 @@ variable fqdn_records {
     default = []
 }
 
+variable zone_id {
+    description = "ID of Route53 zone"
+    type = string
+}
+
 variable environment {
     description = "Environment name"
     type = string
