@@ -7,7 +7,7 @@ terraform {
 }
 
 inputs = {
-    security_group_name = "test"
+    security_group_name = "alb_sg"
     vpc_id = "vpc-bbf694d1"
 
     security_group_rules       = {

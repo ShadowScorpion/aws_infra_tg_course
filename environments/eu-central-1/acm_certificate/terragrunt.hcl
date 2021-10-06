@@ -15,6 +15,6 @@ dependency "fqdn_records" {
 }
 
 inputs = {
-    domain = "test.com"
+    domain = "course.com"
     fqdn_records = dependency.fqdn_records.outputs.fqdn_records
 }
