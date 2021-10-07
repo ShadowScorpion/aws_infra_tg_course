@@ -13,6 +13,11 @@ output "dns_records" {
     description = "DNS records"
 }
 
+output "dns_alias_records" {
+    value = var.dns_alias_records
+    description = "DNS alias records"
+}
+
 output "fqdn_records" {
     value = [for record in aws_route53_record.this : record.fqdn]
     description = "FQDN records"

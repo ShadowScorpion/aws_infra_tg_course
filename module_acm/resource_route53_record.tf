@@ -4,7 +4,6 @@ resource "aws_route53_record" "this" {
       name    = dvo.resource_record_name
       record  = dvo.resource_record_value
       type    = dvo.resource_record_type
-//      zone_id = data.aws_route53_zone.example.zone_id
       zone_id = var.zone_id
     }
   }
@@ -16,8 +15,3 @@ resource "aws_route53_record" "this" {
   type            = each.value.type
   zone_id         = each.value.zone_id
 }
-
-# data "aws_route53_zone" "example" {
-#   name         = "course.com"
-#   private_zone = false
-# }

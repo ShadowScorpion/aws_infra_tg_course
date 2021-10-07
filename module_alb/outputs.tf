@@ -10,5 +10,5 @@ output alb_arn {
 
 output alb_listener_arn {
   description = "ARN of Application Load Balancer Listener"
-  value       = aws_lb_listener.this.*.arn
+  value       = aws_lb_listener.custom_listener.*.arn
 }

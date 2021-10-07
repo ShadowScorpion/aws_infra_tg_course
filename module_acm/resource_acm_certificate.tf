@@ -1,6 +1,7 @@
 resource "aws_acm_certificate" "this" {
   domain_name       = var.domain
   validation_method = var.validation_method
+  subject_alternative_names = [join(",", each.alternative_domains)]
 
   tags = {
     Name = var.domain,

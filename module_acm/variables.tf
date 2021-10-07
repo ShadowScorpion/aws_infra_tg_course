@@ -23,3 +23,8 @@ variable environment {
     description = "Environment name"
     type = string
 }
+
+variable alternative_domains {
+    description = "Alternative domain names"
+    default = []
+}

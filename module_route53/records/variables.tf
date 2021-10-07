@@ -9,7 +9,8 @@ variable dns_records {
     default = {}
 }
 
-variable environment {
-    description = "Environment name"
-    type = string
+variable dns_alias_records {
+    description = "Map of DNS alias records"
+    type = map
+    default = {}
 }
