@@ -9,11 +9,6 @@ variable validation_method {
     type = string
 }
 
-variable fqdn_records {
-    description = "FQDN records"
-    default = []
-}
-
 variable zone_id {
     description = "ID of Route53 zone"
     type = string
