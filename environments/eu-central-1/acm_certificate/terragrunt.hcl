@@ -17,5 +17,6 @@ dependency "route53" {
 
 inputs = {
     domain = dependency.route53.outputs.domain_name
+    alternative_domains = ["*.${dependency.route53.outputs.domain_name}"]
     zone_id = dependency.route53.outputs.zone_id
 }

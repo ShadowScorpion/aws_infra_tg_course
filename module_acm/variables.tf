@@ -22,4 +22,5 @@ variable environment {
 variable alternative_domains {
     description = "Alternative domain names"
     default = []
+    type = list
 }
