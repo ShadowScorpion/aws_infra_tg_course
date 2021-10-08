@@ -1,6 +1,6 @@
 resource "aws_route53_record" "simple_records" {
     for_each = local.dns_record_items
-    zone_id = aws_route53_zone.this.zone_id
+    zone_id = var.zone_id
     name    = each.value["name"]
     type    = each.value["type"]
     ttl     = each.value["ttl"]
@@ -9,7 +9,7 @@ resource "aws_route53_record" "simple_records" {
 
 resource "aws_route53_record" "alias_records" {
     for_each = local.dns_alias_record_items
-    zone_id = aws_route53_zone.this.zone_id
+    zone_id = var.zone_id
     name    = each.value["name"]
     type    = each.value["type"]
     alias {
