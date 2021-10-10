@@ -7,16 +7,17 @@ resource "aws_launch_template" "this" {
   instance_type = var.instance_type
   key_name      = var.key_name
   iam_instance_profile {
-    arn = aws_iam_role.this.arn
+    arn = aws_iam_instance_profile.this.arn
     // "${local.name}-asg-iam-role"
   }
 
-  user_data = filebase64("${path.module}/bootstrap/app.sh")
+  user_data = filebase64("${path.module}/bootstrap/init.sh")
 
-  vpc_security_group_ids = var.security_groups
+  //vpc_security_group_ids = var.security_groups
 
   network_interfaces {
     associate_public_ip_address = var.associate_public_ip_address
+    security_groups = var.security_groups
   }
 
   block_device_mappings {

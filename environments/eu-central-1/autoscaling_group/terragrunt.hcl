@@ -41,12 +41,15 @@ dependency "route53" {
 inputs = {
   name_prefix = "app"
   vpd_id = "vpc-bbf694d1"
-  availability_zones = ["eu-central-1-a", "eu-central-1-b", "eu-central-1-c"]
+  availability_zones = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
   key_name = "course-key"
   security_groups = [ dependency.security_group.outputs.security_group_id ]
   device_enable_encryption = true
   device_encryption_key = dependency.kms_key.outputs.arn
   lb_listener = dependency.alb.outputs.alb_listener_arn
-  domain_name = "app-${dependency.route53.outputs.domain_name}"
-  tg_health_matcher = "app-${dependency.route53.outputs.domain_name}"
+  domain_name = "app.${dependency.route53.outputs.domain_name}"
+
+  desired_capacity = 0
+  max_size = 0
+  min_size = 0
 }

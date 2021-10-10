@@ -164,6 +164,7 @@ variable tg_health_protocol {
 variable tg_health_matcher {
   description = "Matcher of health check of target group"
   type = string
+  default = "200"
 }
 
 variable tg_health_timeout {
