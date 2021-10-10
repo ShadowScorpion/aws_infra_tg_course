@@ -17,16 +17,19 @@ variable availability_zones {
 variable asg_desired_capacity {
   description = "Desired capacity of ASG"
   type = number
+  default = 1
 }
 
 variable asg_max_size {
   description = "Max capacity of ASG"
   type = number
+  default = 1
 }
 
 variable asg_min_size {
   description = "Min capacity of ASG"
   type = number
+  default = 1
 }
 
 variable role_description {
@@ -64,7 +67,7 @@ variable security_groups {
 
 variable associate_public_ip_address {
   description = "Flag of association of public IP"
-  type = list
+  type = bool
   default = true
 }
 
@@ -167,4 +170,9 @@ variable tg_health_timeout {
   description = "Timeout of health check of target group"
   type = number
   default = 60
+}
+
+variable environment {
+    description = "Environment name"
+    type = string
 }

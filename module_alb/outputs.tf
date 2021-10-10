@@ -5,12 +5,12 @@ output alb_name {
 
 output alb_arn {
   description = "ARN of Application Load Balancer"
-  value       = aws_lb.this.*.arn
+  value       = aws_lb.this.arn
 }
 
 output alb_listener_arn {
   description = "ARN of Application Load Balancer Listener"
-  value       = aws_lb_listener.custom_listener.*.arn
+  value       = aws_lb_listener.custom_listener.arn
 }
 
 output alb_zone_id {

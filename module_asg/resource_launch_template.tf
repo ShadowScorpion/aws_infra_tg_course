@@ -1,5 +1,5 @@
 resource "aws_launch_template" "this" {
-  name        = "${local.name-lt}"
+  name        = "${local.name}-lt"
   description = var.lt_description
 
   ebs_optimized = var.ebs_optimized
@@ -11,7 +11,7 @@ resource "aws_launch_template" "this" {
     // "${local.name}-asg-iam-role"
   }
 
-  user_data = data.template_cloudinit_config.bootstrap.rendered
+  user_data = filebase64("${path.module}/bootstrap/app.sh")
 
   vpc_security_group_ids = var.security_groups
 
@@ -26,7 +26,7 @@ resource "aws_launch_template" "this" {
       volume_type = var.device_volume_type
       delete_on_termination = var.device_delete_on_termiation
       encrypted = var.device_enable_encryption
-      kms_key_id = var.device_enable_encryption ? var.device_enable_encryption : null
+      kms_key_id = var.device_enable_encryption ? var.device_encryption_key : null
     }
   }
 
@@ -35,7 +35,7 @@ resource "aws_launch_template" "this" {
   }
 
   tags = {
-    Name = "${local.name-lt}",
+    Name = "${local.name}-lt",
     Environment = var.environment
   }
 
