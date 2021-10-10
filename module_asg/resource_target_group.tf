@@ -4,12 +4,6 @@ resource "aws_lb_target_group" "this" {
   protocol             = var.tg_protocol
   vpc_id               = var.vpc_id
 
-  stickiness  {
-      type            = "lb_cookie"
-      cookie_duration = var.tg_stickiness_cookie_duration
-      enabled         = var.tg_stickiness_enabled
-  }
-
   health_check  {
       path            = var.tg_health_path
       port            = var.tg_health_port

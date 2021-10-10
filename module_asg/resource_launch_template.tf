@@ -1,6 +1,6 @@
 resource "aws_launch_template" "this" {
   name        = "${local.name-lt}"
-  description = var.description
+  description = var.lt_description
 
   ebs_optimized = var.ebs_optimized
   image_id      = var.image_id
@@ -16,7 +16,7 @@ resource "aws_launch_template" "this" {
   vpc_security_group_ids = var.security_groups
 
   network_interfaces {
-    associate_public_ip_address = var.assocuate_public_interface
+    associate_public_ip_address = var.associate_public_ip_address
   }
 
   block_device_mappings {
