@@ -170,7 +170,7 @@ variable tg_health_matcher {
 variable tg_health_timeout {
   description = "Timeout of health check of target group"
   type = number
-  default = 60
+  default = 20
 }
 
 variable environment {

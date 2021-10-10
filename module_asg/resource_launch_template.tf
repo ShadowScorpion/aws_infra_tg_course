@@ -40,4 +40,9 @@ resource "aws_launch_template" "this" {
     Environment = var.environment
   }
 
+  depends_on = [
+    aws_iam_policy.instance_policy,
+    aws_iam_role_policy_attachment.this
+  ]
+
 }

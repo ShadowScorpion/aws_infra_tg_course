@@ -2,6 +2,7 @@ resource "aws_lb_target_group" "this" {
   name                 = "${local.name}-tg"
   port                 = var.tg_port
   protocol             = var.tg_protocol
+  
   vpc_id               = var.vpc_id
 
   health_check  {

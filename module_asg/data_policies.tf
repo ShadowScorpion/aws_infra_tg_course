@@ -18,10 +18,6 @@ data "aws_iam_policy_document" "instance_policy" {
   }
 
   statement {
-  principals {
-      type        = "AWS"
-      identifiers = ["arn:aws:iam::142725718225:root"]
-    }
     actions = [
        "kms:Encrypt",
        "kms:Decrypt",
