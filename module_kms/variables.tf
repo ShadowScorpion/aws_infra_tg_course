@@ -14,3 +14,8 @@ variable deletion_window_in_days {
     type = number
     default = 15
 }
+
+variable kms_key_policy {
+    description = "KMS key policy"
+    type = string
+}
