@@ -12,13 +12,13 @@ resource aws_iam_policy "instance_policy" {
   policy              = data.aws_iam_policy_document.instance_policy.json
 }
 
-resource aws_iam_role_policy_attachment "this" {
-  role                = aws_iam_role.this.name
-  policy_arn          = aws_iam_policy.instance_policy.arn
-}
-
 resource aws_iam_instance_profile "this" {
   path                = "/terraform/instances/"
   name                = "${local.name}-instances-profile"
   role                = aws_iam_role.this.name
+}
+
+resource aws_iam_role_policy_attachment "instance_policy_to_instance_role" {
+  role                = aws_iam_role.this.name
+  policy_arn          = aws_iam_policy.instance_policy.arn
 }

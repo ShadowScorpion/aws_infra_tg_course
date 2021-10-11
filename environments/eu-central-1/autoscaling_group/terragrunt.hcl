@@ -49,7 +49,7 @@ inputs = {
   lb_listener = dependency.alb.outputs.alb_listener_arn
   domain_name = "app.${dependency.route53.outputs.domain_name}"
 
-  asg_desired_capacity = 0
-  asg_max_size = 0
-  asg_min_size = 0
+  asg_desired_capacity = 1
+  asg_max_size = 1
+  asg_min_size = 1
 }

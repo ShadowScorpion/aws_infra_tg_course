@@ -8,7 +8,6 @@ resource "aws_launch_template" "this" {
   key_name      = var.key_name
   iam_instance_profile {
     arn = aws_iam_instance_profile.this.arn
-    // "${local.name}-asg-iam-role"
   }
 
   user_data = filebase64("${path.module}/bootstrap/init.sh")
@@ -41,8 +40,8 @@ resource "aws_launch_template" "this" {
   }
 
   depends_on = [
-    aws_iam_policy.instance_policy,
-    aws_iam_role_policy_attachment.this
+   aws_iam_instance_profile.this,
+   aws_iam_role_policy_attachment.instance_policy_to_instance_role
   ]
 
 }
