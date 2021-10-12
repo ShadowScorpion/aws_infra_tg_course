@@ -1,3 +1,14 @@
+# Global variables
+
+variable environment {
+    description = "Environment name"
+    type = string
+}
+
+
+
+# Module variables
+
 variable security_group_name {
     description = "Name of Security Group"
     type = string
@@ -20,7 +31,3 @@ variable security_group_rules {
     default = {}
 }
 
-variable environment {
-    description = "Environment name"
-    type = string
-}

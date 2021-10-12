@@ -6,8 +6,8 @@ resource "aws_lb" "this" {
     subnets            = var.subnets
     enable_deletion_protection = var.enable_deletion_protection_flag
 
-    tags = tomap({
-        "Name" = var.name,
-        "Environment" = var.environment
-    })
+    tags = {
+        Name = var.name,
+        Environment = var.environment
+    }
 }

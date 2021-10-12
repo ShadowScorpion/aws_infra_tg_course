@@ -33,6 +33,17 @@ variable listener_port {
   default = 443
 }
 
+# Global variables
+
+variable environment {
+    description = "Environment name"
+    type = string
+}
+
+
+
+# Module variables
+
 variable listener_protocol {
   description = "Listener protocol"
   type = string
@@ -48,9 +59,4 @@ variable listener_policy {
 variable certificate_arn {
   description = "ARN of SSL certificate"
   type = string
-}
-
-variable environment {
-    description = "Environment name"
-    type = string
 }

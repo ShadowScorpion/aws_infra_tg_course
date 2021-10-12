@@ -1,3 +1,14 @@
+# Global variables
+
+variable environment {
+    description = "Environment name"
+    type = string
+}
+
+
+
+# Module variables
+
 variable name_prefix {
   description = "Name prefix of ASG elements"
   type = string
@@ -171,9 +182,4 @@ variable tg_health_timeout {
   description = "Timeout of health check of target group"
   type = number
   default = 20
-}
-
-variable environment {
-    description = "Environment name"
-    type = string
 }

@@ -1,3 +1,14 @@
+# Global variables
+
+variable environment {
+    description = "Environment name"
+    type = string
+}
+
+
+
+# Module variables
+
 variable domain {
     description = "Domain name"
     type = string
@@ -11,11 +22,6 @@ variable validation_method {
 
 variable zone_id {
     description = "ID of Route53 zone"
-    type = string
-}
-
-variable environment {
-    description = "Environment name"
     type = string
 }
 

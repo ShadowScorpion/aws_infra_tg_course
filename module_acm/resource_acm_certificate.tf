@@ -3,14 +3,15 @@ resource "aws_acm_certificate" "this" {
   validation_method = var.validation_method
   subject_alternative_names = var.alternative_domains
 
+  lifecycle {
+    create_before_destroy = true
+  }
+
   tags = {
     Name = var.domain,
     Environment = var.environment
   }
 
-  lifecycle {
-    create_before_destroy = true
-  }
 }
 
 resource "aws_acm_certificate_validation" "this" {

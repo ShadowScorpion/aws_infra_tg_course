@@ -11,7 +11,7 @@ inputs = {
     description = "EC2 instance encrypt key"
     deletion_window_in_days = 10
 
-    kms_key_policy = <<EOF
+    policy = <<EOF
 {
   "Version": "2012-10-17",
   "Statement": [

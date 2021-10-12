@@ -40,6 +40,11 @@ dependency "route53" {
 
 inputs = {
   name_prefix = "app"
+
+  asg_desired_capacity = 1
+  asg_max_size = 1
+  asg_min_size = 1
+
   vpc_id = "vpc-bbf694d1"
   availability_zones = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
   key_name = "course-key"
@@ -48,8 +53,4 @@ inputs = {
   device_encryption_key = dependency.kms_key.outputs.arn
   lb_listener = dependency.alb.outputs.alb_listener_arn
   domain_name = "app.${dependency.route53.outputs.domain_name}"
-
-  asg_desired_capacity = 1
-  asg_max_size = 1
-  asg_min_size = 1
 }
