@@ -6,13 +6,11 @@ resource "aws_launch_template" "this" {
   image_id      = var.image_id
   instance_type = var.instance_type
   key_name      = var.key_name
+  user_data = filebase64("${path.module}/bootstrap/init.sh")
+
   iam_instance_profile {
     arn = aws_iam_instance_profile.this.arn
   }
-
-  user_data = filebase64("${path.module}/bootstrap/init.sh")
-
-  //vpc_security_group_ids = var.security_groups
 
   network_interfaces {
     associate_public_ip_address = var.associate_public_ip_address
@@ -41,7 +39,7 @@ resource "aws_launch_template" "this" {
 
   depends_on = [
    aws_iam_instance_profile.this,
-   aws_iam_role_policy_attachment.instance_policy_to_instance_role
+   aws_iam_role_policy_attachment.instance_policy_attachment
   ]
 
 }

@@ -1,4 +1,4 @@
-resource aws_iam_role "this" {
+resource aws_iam_role "instance_role" {
    path                = "/terraform/instances/"
    name                = "${local.name}-asg-iam-role"
    description         = var.role_description
@@ -15,10 +15,10 @@ resource aws_iam_policy "instance_policy" {
 resource aws_iam_instance_profile "this" {
   path                = "/terraform/instances/"
   name                = "${local.name}-instances-profile"
-  role                = aws_iam_role.this.name
+  role                = aws_iam_role.instance_role.name
 }
 
-resource aws_iam_role_policy_attachment "instance_policy_to_instance_role" {
+resource aws_iam_role_policy_attachment "instance_policy_attachment" {
   role                = aws_iam_role.this.name
   policy_arn          = aws_iam_policy.instance_policy.arn
 }
