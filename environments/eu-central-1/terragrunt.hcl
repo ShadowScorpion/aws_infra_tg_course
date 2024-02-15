@@ -7,7 +7,7 @@ remote_state {
     }
 
     config = {
-        bucket = "courses-terraform-terragrunt-states-bucket"
+        bucket = "courses-terraform-terragrunt-states-bucket" #Do note that bucket name needs to be globally unique, if you are facing an error, add some random numbers behind
         key = "eu-central-1/${path_relative_to_include()}/terraform.tfvars"
         region = "eu-central-1"
         encrypt = true
